@@ -40,11 +40,11 @@ export class TecnicoCreateComponent implements OnInit {
       this.service.message('Técnico criado com sucesso!')
     }, err => {
       console.log(err)
-      if (err.error.erros.match('já cadastrado')) {
+      if (err?.error?.erros?.match('já cadastrado')) {
         this.service.message(err.error.erros)
-      } else if (err.error.errors[0].message.match('requerido')) {
+      } else if (err?.error?.errors[0]?.message.match('requerido')) {
         this.service.message('Campos obrigatórios não preenchidos!')
-      }else if (err.error.errors[0].message.match('contribuinte')) {
+      }else if (err?.error?.errors[0]?.message.match('contribuinte')) {
         this.service.message('CPF inválido!')
       }
     })

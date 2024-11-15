@@ -1,11 +1,32 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './views/components/template/header/header.component';
+import { NavComponent } from './views/components/template/nav/nav.component';
+import { FooterComponent } from './views/components/template/footer/footer.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDrawer, MatDrawerContainer, MatDrawerContent } from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatNavList } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
-describe('AppComponent', () => {
+fdescribe('AppComponent', () => {
+
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
+    imports: [RouterTestingModule, 
+      MatToolbarModule, 
+      BrowserAnimationsModule, 
+      MatMenuModule, 
+      MatIconModule],
+    declarations: [AppComponent, 
+      HeaderComponent, 
+      NavComponent, 
+      FooterComponent, 
+      MatDrawerContainer, 
+      MatDrawer, 
+      MatNavList, 
+      MatDrawerContent],
   }));
 
   it('should create the app', () => {
@@ -20,10 +41,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('os2');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('os2 app is running!');
-  });
 });

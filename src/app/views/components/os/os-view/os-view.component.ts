@@ -35,6 +35,6 @@ export class OsViewComponent implements OnInit{
   }
 
   return():void {
-    this.router.navigate(['os'])
+    this.router.navigate(['os']);
   }
 }

@@ -32,11 +32,10 @@ export class ClienteReadComponent implements AfterViewInit {
       this.clientes = resposta;
       this.dataSource = new MatTableDataSource<Cliente>(this.clientes);
       this.dataSource.paginator = this.paginator;
-
     })
   }
 
   navigateToCreate():void {
-    this.router.navigate(['clientes/create'])
+    this.router.navigate(['clientes/create']);
   }
 }

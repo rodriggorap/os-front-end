@@ -36,13 +36,13 @@ export class ClienteDeleteComponent implements OnInit{
   }
 
   delete(): void {
-    this.service.delete(this.id_tec).subscribe(resposta => {
+    this.service.delete(this.id_tec).subscribe(() => {
       this.router.navigate(['clientes'])
       this.service.message('Cliente deletado com sucesso!')
     }, err => {
       console.log(err)
-      if (err.error.erros.match('Cliente possui Ordens de Serviço')) {
-        this.service.message(err.error.erros);
+      if (err?.error?.erros?.match('Cliente possui Ordens de Serviço')) {
+        this.service.message(err.error.erros); 
       } 
     })
   }

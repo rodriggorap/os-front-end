@@ -41,7 +41,7 @@ export class TecnicoDeleteComponent implements OnInit{
       this.service.message('Técnico deletado com sucesso!')
     }, err => {
       console.log(err)
-      if (err.error.erros.match('Técnico possui Ordens de Serviço')) {
+      if (err?.error?.erros?.match('Técnico possui Ordens de Serviço')) {
         this.service.message(err.error.erros);
       } 
     })

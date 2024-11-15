@@ -10,7 +10,6 @@ import { ClienteService } from 'src/app/services/cliente.service';
   styleUrls: ['./cliente-create.component.css']
 })
 export class ClienteCreateComponent implements OnInit {
-
   cliente: Cliente = {
     id: '',
     nome: '',
@@ -40,11 +39,11 @@ export class ClienteCreateComponent implements OnInit {
       this.service.message('Cliente criado com sucesso!')
     }, err => {
       console.log(err)
-      if (err.error.erros.match('já cadastrado')) {
+      if (err?.error?.erros?.match('já cadastrado')) {
         this.service.message(err.error.erros)
-      } else if (err.error.errors[0].message.match('requerido')) {
+      } else if (err?.error?.errors[0]?.message.match('requerido')) {
         this.service.message('Campos obrigatórios não preenchidos!')
-      }else if (err.error.errors[0].message.match('contribuinte')) {
+      }else {
         this.service.message('CPF inválido!')
       }
     })
